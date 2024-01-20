@@ -27,7 +27,7 @@ import SignUp from './components/SignUp';
 export default function App() {
   return (
     <div className="app">
-      <BrowserRouter  basename="/">
+      <BrowserRouter  basename="/#">
         <Routes>
           <Route path="/" element={<SignUp></SignUp>} />
           {/* <Route path="/SignUp" element={<SignUp />} /> */}
