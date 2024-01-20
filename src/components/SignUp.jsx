@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SignUp.scss";
 import { Link as RouterLink } from "react-router-dom";
-import Logo from "../assets/logo.png";
+import Logo from "../assets/logo_2.0.png";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -19,6 +19,10 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import DatePicker from "react-datepicker";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import YoutubeIcon from "@mui/icons-material/YouTube";
 import "react-datepicker/dist/react-datepicker.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
@@ -36,12 +40,11 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [birthday, setBirthday] = useState("");
-  // const [gender, setGender] = useState(''); // Uncomment this line if you decide to use gender
   const [mobile, setMobile] = useState("");
-
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [mobileError, setMobileError] = useState("");
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const formatDate = (date) => {
     const options = { year: "numeric", month: "numeric", day: "numeric" };
@@ -96,19 +99,22 @@ export default function SignUp() {
         <CssBaseline />
         <Box
           sx={{
-            // marginTop: 8,
+            marginTop: 2,
+            marginBottom: 1,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             backgroundColor: "antiquewhite",
+            padding: 2,
           }}
         >
           {/* <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}> */}
           {/* <LockOutlinedIcon /> */}
-          <img src={Logo} style={{ width: "10%" }}></img>
+          <img src={Logo} style={{ width: "45%", marginBottom: "20px" }}></img>
           {/* </Avatar> */}
-          <Typography component="h1" variant="h5">
-            Pre-Register
+          <Typography component="h1" variant="h6" sx={{ textAlign: "center" }}>
+            Pre-register for our fitness product launch happening in the coming
+            weeks
           </Typography>
           <Box
             component="form"
@@ -171,7 +177,7 @@ export default function SignUp() {
               </Grid>
 
               <Grid item xs={12}>
-                <FormControl fullWidth >
+                <FormControl fullWidth>
                   <InputLabel id="how-did-you-hear-label">
                     How did you hear about us?
                   </InputLabel>
@@ -251,29 +257,15 @@ export default function SignUp() {
                       // }
                     />
                   }
-                  style={{ width: '100%', important: 'true' }}
+                  style={{ width: "100%", important: "true" }}
                 />
               </Grid>
-
-              {/* <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="gender"
-                  label="gender"
-                  // type="radio"
-                  id="gender"
-                  autoComplete="gender"
-                  value={gender}
-                  onChange={(e) => setGender(e.target.value)}
-                />
-              </Grid> */}
               <Grid item xs={12}>
                 <FormControlLabel
                   control={
                     <Checkbox value="allowExtraEmails" color="primary" />
                   }
-                  label="I hereby agree to receive updates about the product launch"
+                  label="I agree to receive product launch updates"
                 />
               </Grid>
             </Grid>
@@ -283,7 +275,7 @@ export default function SignUp() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-             Register
+              Register
             </Button>
             {/* <Grid container justifyContent="flex-end">
               <Grid item>
@@ -292,6 +284,53 @@ export default function SignUp() {
                 </RouterLink>
               </Grid>
             </Grid> */}
+            <Box
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: 10,
+              }}
+            >
+              <Link
+                href="https://www.facebook.com/profile.php?id=61551652394165"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FacebookIcon
+                  style={{ fontSize: 30, color: "#0866ff", marginRight: 10 }}
+                />
+              </Link>
+              <Link
+                href="https://www.instagram.com/bviveofficial/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <InstagramIcon
+                  style={{ fontSize: 30, color: "#E4405F", marginRight: 10 }}
+                />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/company/bvive/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LinkedInIcon
+                  style={{ fontSize: 30, color: "#0a66c2", marginRight: 10 }}
+                />
+              </Link>
+              <Link
+                href="https://www.youtube.com/channel/UC7De0VCT97KHKca4mQSugBQ"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <YoutubeIcon style={{ fontSize: 30, color: "#ff0000" }} />
+              </Link>
+            </Box>
+            {submitSuccess && (
+              <Typography variant="body2" color="primary" align="center">
+                Thank you for submitting the form!
+              </Typography>
+            )}
           </Box>
         </Box>
       </Container>
