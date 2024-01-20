@@ -32,6 +32,7 @@ body {
   min-height: 100vh;
   background-image: url(./assets/background-8022256_1280.png);
   background-size: cover;
+  justify-content: center;
 
 }
 

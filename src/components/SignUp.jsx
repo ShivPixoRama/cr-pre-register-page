@@ -113,8 +113,9 @@ export default function SignUp() {
           <img src={Logo} style={{ width: "45%", marginBottom: "20px" }}></img>
           {/* </Avatar> */}
           <Typography component="h1" variant="h6" sx={{ textAlign: "center" }}>
-            Pre-register for our fitness product launch happening in the coming
-            weeks
+            Get early access to our new fitness app launching in a few weeks
+            <br></br>
+            pre-register now!
           </Typography>
           <Box
             component="form"
