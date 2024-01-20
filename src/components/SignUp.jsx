@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SignUp.scss";
 import { Link as RouterLink } from "react-router-dom";
-import Logo from "../assets/logo_2.0.png";
+import Logo from "../assets/Bvive_logo_new.png";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -110,7 +110,7 @@ export default function SignUp() {
         >
           {/* <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}> */}
           {/* <LockOutlinedIcon /> */}
-          <img src={Logo} style={{ width: "45%", marginBottom: "20px" }}></img>
+          <img src={Logo} style={{ width: "45%", marginBottom: "10px" }}></img>
           {/* </Avatar> */}
           <Typography component="h1" variant="h6" sx={{ textAlign: "center" }}>
             Get early access to our new fitness app launching in a few weeks
