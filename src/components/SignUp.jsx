@@ -91,200 +91,206 @@ export default function SignUp() {
       birthday,
       mobile,
     });
+
+    setSubmitSuccess(true);
   };
 
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 2,
-            marginBottom: 1,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            backgroundColor: "antiquewhite",
-            padding: 2,
-          }}
-        >
-          {/* <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}> */}
-          {/* <LockOutlinedIcon /> */}
-          <img src={Logo} style={{ width: "45%", marginBottom: "10px" }}></img>
-          {/* </Avatar> */}
-          <Typography component="h1" variant="h6" sx={{ textAlign: "center" }}>
-            Get early access to our new fitness app launching in a few weeks
-            <br></br>
-            pre-register now!
-          </Typography>
+        {submitSuccess ? (
           <Box
-            component="form"
-            noValidate
-            onSubmit={handleSubmit}
-            sx={{ mt: 3 }}
+            sx={{
+              marginTop: 2,
+              marginBottom: 1,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              backgroundColor: "antiquewhite",
+              padding: 2,
+            }}
           >
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  onBlur={validateEmail}
-                  error={Boolean(emailError)}
-                  helperText={emailError}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  // required
-                  fullWidth
-                  id="profession"
-                  label="Profession"
-                  name="profession"
-                  autoComplete="profession"
-                  value={profession}
-                  onChange={(e) => setProfession(e.target.value)}
-                />
-              </Grid>
-
-              <Grid item xs={12}>
-                <FormControl fullWidth>
-                  <InputLabel id="how-did-you-hear-label">
-                    How did you hear about us?
-                  </InputLabel>
-                  <Select
-                    labelId="how-did-you-hear-label"
-                    id="how-did-you-hear"
-                    value={howDidYouHear}
-                    name="howDidYouHear"
-                    label="How did you hear about us?"
-                    autoComplete="How did you hear about us?"
-                    onChange={(e) => setHowDidYouHear(e.target.value)}
-                  >
-                    <MenuItem value="Instagram">Instagram</MenuItem>
-                    <MenuItem value="Facebook">Facebook</MenuItem>
-                    <MenuItem value="CourseProvider">Course Provider</MenuItem>
-                    <MenuItem value="Google">Google</MenuItem>
-                    <MenuItem value="Referral">Referral</MenuItem>
-                    <MenuItem value="Other">Other</MenuItem>
-                  </Select>
-                </FormControl>
-              </Grid>
-              {/* <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  onBlur={validatePassword}
-                  error={Boolean(passwordError)}
-                  helperText={passwordError}
-                />
-              </Grid> */}
-              <Grid item xs={12}>
-                <TextField
-                  // required
-                  fullWidth
-                  id="mobile"
-                  label="Mobile Number"
-                  name="mobile"
-                  autoComplete="phone-number"
-                  value={mobile}
-                  onChange={(e) => setMobile(e.target.value)}
-                  onBlur={validateMobile}
-                  error={Boolean(mobileError)}
-                  helperText={mobileError}
-                />
-              </Grid>
-
-              <Grid container item xs={12}>
-                <DatePicker
-                  selected={birthday}
-                  onChange={(date) => setBirthday(date)}
-                  peekNextMonth
-                  showMonthDropdown
-                  showYearDropdown
-                  dropdownMode="select"
-                  dateFormat="yyyy"
-                  placeholderText="Select a date"
-                  customInput={
-                    <TextField
-                      required
-                      fullWidth
-                      id="birthday"
-                      label="DOB *"
-                      name="birthday"
-                      InputProps={{
-                        readOnly: true,
-                      }}
-                      // error={Boolean(!birthday)}
-                      // helperText={
-                      //   Boolean(!birthday) ? "Please select a date" : ""
-                      // }
-                    />
-                  }
-                  style={{ width: "100%", important: "true" }}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
-                  }
-                  label="I agree to receive product launch updates"
-                />
-              </Grid>
-            </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+            {/* <Typography  variant="body2" color="primary" align="center">
+              Thank you for submitting the form!
+            </Typography> */}
+            <div class="circle__box">
+              <div class="circle__wrapper circle__wrapper--right">
+                <div class="circle__whole circle__right"></div>
+              </div>
+              <div class="circle__wrapper circle__wrapper--left">
+                <div class="circle__whole circle__left"></div>
+              </div>
+              <div class="circle__checkmark"></div>
+            </div>
+          </Box>
+        ) : (
+          <Box
+            sx={{
+              marginTop: 2,
+              marginBottom: 1,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              backgroundColor: "antiquewhite",
+              padding: 2,
+            }}
+          >
+            <img
+              src={Logo}
+              style={{ width: "45%", marginBottom: "10px" }}
+            ></img>
+            <Typography
+              component="h1"
+              variant="h6"
+              sx={{ textAlign: "center" }}
             >
-              Register
-            </Button>
-            {/* <Grid container justifyContent="flex-end">
-              <Grid item>
-                <RouterLink to="SignIn">
-                  <Link variant="body2">Already have an account? Sign in</Link>
-                </RouterLink>
+              Get early access to our new fitness app launching in a few weeks
+              <br></br>
+              pre-register now!
+            </Typography>
+            <Box
+              component="form"
+              noValidate
+              onSubmit={handleSubmit}
+              sx={{ mt: 3 }}
+            >
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    autoComplete="given-name"
+                    name="firstName"
+                    required
+                    fullWidth
+                    id="firstName"
+                    label="First Name"
+                    autoFocus
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="lastName"
+                    label="Last Name"
+                    name="lastName"
+                    autoComplete="family-name"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    onBlur={validateEmail}
+                    error={Boolean(emailError)}
+                    helperText={emailError}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    fullWidth
+                    id="profession"
+                    label="Profession"
+                    name="profession"
+                    autoComplete="profession"
+                    value={profession}
+                    onChange={(e) => setProfession(e.target.value)}
+                  />
+                </Grid>
+
+                <Grid item xs={12}>
+                  <FormControl fullWidth>
+                    <InputLabel id="how-did-you-hear-label">
+                      How did you hear about us?
+                    </InputLabel>
+                    <Select
+                      labelId="how-did-you-hear-label"
+                      id="how-did-you-hear"
+                      value={howDidYouHear}
+                      name="howDidYouHear"
+                      label="How did you hear about us?"
+                      autoComplete="How did you hear about us?"
+                      onChange={(e) => setHowDidYouHear(e.target.value)}
+                    >
+                      <MenuItem value="Instagram">Instagram</MenuItem>
+                      <MenuItem value="Facebook">Facebook</MenuItem>
+                      <MenuItem value="CourseProvider">
+                        Course Provider
+                      </MenuItem>
+                      <MenuItem value="Google">Google</MenuItem>
+                      <MenuItem value="Referral">Referral</MenuItem>
+                      <MenuItem value="Other">Other</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    fullWidth
+                    id="mobile"
+                    label="Mobile Number"
+                    name="mobile"
+                    autoComplete="phone-number"
+                    value={mobile}
+                    onChange={(e) => setMobile(e.target.value)}
+                    onBlur={validateMobile}
+                    error={Boolean(mobileError)}
+                    helperText={mobileError}
+                  />
+                </Grid>
+
+                <Grid container item xs={12}>
+                  <DatePicker
+                    selected={birthday}
+                    onChange={(date) => setBirthday(date)}
+                    peekNextMonth
+                    showMonthDropdown
+                    showYearDropdown
+                    dropdownMode="select"
+                    dateFormat="yyyy"
+                    placeholderText="Select a date"
+                    customInput={
+                      <TextField
+                        required
+                        fullWidth
+                        id="birthday"
+                        label="DOB *"
+                        name="birthday"
+                        InputProps={{
+                          readOnly: true,
+                        }}
+                      />
+                    }
+                    style={{ width: "100%", important: "true" }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormControlLabel
+                    control={
+                      <Checkbox value="allowExtraEmails" color="primary" />
+                    }
+                    label="I agree to receive product launch updates"
+                  />
+                </Grid>
               </Grid>
-            </Grid> */}
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Register
+              </Button>
+            </Box>
             <Box
               style={{
                 display: "flex",
@@ -327,13 +333,8 @@ export default function SignUp() {
                 <YoutubeIcon style={{ fontSize: 30, color: "#ff0000" }} />
               </Link>
             </Box>
-            {submitSuccess && (
-              <Typography variant="body2" color="primary" align="center">
-                Thank you for submitting the form!
-              </Typography>
-            )}
           </Box>
-        </Box>
+        )}
       </Container>
     </ThemeProvider>
   );
