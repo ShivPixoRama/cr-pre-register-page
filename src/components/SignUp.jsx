@@ -93,6 +93,9 @@ export default function SignUp() {
     });
 
     setSubmitSuccess(true);
+    setTimeout(() => {
+      window.location.href = 'https://bvive.shop/'; 
+    }, 3000);
   };
 
   return (
@@ -122,6 +125,10 @@ export default function SignUp() {
                 <div class="circle__whole circle__left"></div>
               </div>
               <div class="circle__checkmark"></div>
+            </div>
+            <div style={{textAlign:"center"}}> Thank you for subscribing!
+              <br></br>
+              We'll redirect you to shop in 2-3 seconds...
             </div>
           </Box>
         ) : (
