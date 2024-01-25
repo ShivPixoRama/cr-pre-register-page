@@ -45,11 +45,8 @@ export default function SignUp() {
   const [passwordError, setPasswordError] = useState("");
   const [mobileError, setMobileError] = useState("");
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [startDate, setStartDate] = useState(null);
 
-  const formatDate = (date) => {
-    const options = { year: "numeric", month: "numeric", day: "numeric" };
-    return new Date(date).toLocaleDateString(undefined, options);
-  };
 
   const validateEmail = () => {
     setEmailError(emailRegex.test(email) ? "" : "Invalid email address");
@@ -94,7 +91,7 @@ export default function SignUp() {
 
     setSubmitSuccess(true);
     setTimeout(() => {
-      window.location.href = 'https://bvive.shop/'; 
+      window.location.href = "https://bvive.shop/";
     }, 3000);
   };
 
@@ -126,7 +123,9 @@ export default function SignUp() {
               </div>
               <div class="circle__checkmark"></div>
             </div>
-            <div style={{textAlign:"center"}}> Thank you for subscribing!
+            <div style={{ textAlign: "center" }}>
+              {" "}
+              Thank you for subscribing!
               <br></br>
               We'll redirect you to shop in 2-3 seconds...
             </div>
@@ -257,13 +256,11 @@ export default function SignUp() {
 
                 <Grid container item xs={12}>
                   <DatePicker
-                    selected={birthday}
-                    onChange={(date) => setBirthday(date)}
-                    peekNextMonth
-                    showMonthDropdown
-                    showYearDropdown
-                    dropdownMode="select"
+                    selected={startDate}
+                    onChange={(date) => setStartDate(date)}
+                    showYearPicker
                     dateFormat="yyyy"
+                    yearItemNumber={9}
                     placeholderText="Select a date"
                     customInput={
                       <TextField

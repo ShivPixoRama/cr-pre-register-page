@@ -2,6 +2,11 @@
     width: 100% !important;
   }
   
+  .react-datepicker__year-wrapper {
+  max-width: 210px !important;
+  }
+
+
   .circle {
     &__checkmark {
       position: absolute;
