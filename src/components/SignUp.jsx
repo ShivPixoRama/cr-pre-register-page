@@ -31,8 +31,6 @@ const defaultTheme = createTheme();
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
 const mobileRegex = /^\d{10,15}$/;
-const dateRegex = /^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d{4}$/;
-
 
 export default function SignUp() {
   const [firstName, setFirstName] = useState("");
@@ -65,8 +63,6 @@ export default function SignUp() {
     setMobileError(mobileRegex.test(mobile) ? "" : "Invalid mobile number");
   };
 
-
-  
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -242,7 +238,7 @@ export default function SignUp() {
                     </Select>
                   </FormControl>
                 </Grid>
-                
+
                 <Grid item xs={12}>
                   <TextField
                     fullWidth
@@ -257,11 +253,16 @@ export default function SignUp() {
                     helperText={mobileError}
                   />
                 </Grid>
+
                 <Grid container item xs={12}>
                   <DatePicker
-                  dateFormat="dd/MM/yyyy"
+                    dateFormat="dd/MM/yyyy"
                     selected={startDate}
                     onChange={(date) => setStartDate(date)}
+                    peekNextMonth
+                    showMonthDropdown
+                    showYearDropdown
+                    dropdownMode="select"
                     popperClassName="some-custom-class"
                     popperPlacement="top"
                     placeholderText="Select a date"
