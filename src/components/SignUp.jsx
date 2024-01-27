@@ -93,8 +93,17 @@ export default function SignUp() {
       window.location.href = "https://bvive.shop/";
     }, 3000);
   };
-
-  return (
+  const handleDateChange = (date) => {
+    const currentDate = new Date();
+    
+    if (date > currentDate) {
+      alert("Please select a date in the past or today.");
+      // Optionally, you can reset the date to the current date
+      setStartDate(currentDate);
+    } else {
+      setStartDate(date);
+    }
+  };  return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -258,7 +267,7 @@ export default function SignUp() {
                   <DatePicker
                     dateFormat="dd/MM/yyyy"
                     selected={startDate}
-                    onChange={(date) => setStartDate(date)}
+                    onChange={(date) => handleDateChange(date)}
                     peekNextMonth
                     showMonthDropdown
                     showYearDropdown
@@ -279,6 +288,7 @@ export default function SignUp() {
                       />
                     }
                     style={{ width: "100%", important: "true" }}
+                    maxDate={new Date()}  
                   />
                 </Grid>
                 <Grid item xs={12}>
